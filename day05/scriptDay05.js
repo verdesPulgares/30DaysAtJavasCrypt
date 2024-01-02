@@ -68,6 +68,124 @@ console.log(itCompanies.sort());
 console.log(itCompanies.reverse());
 //17
 console.log(itCompanies.slice(0, 3));
+//18
 console.log(itCompanies.slice(itCompanies.length - 3));
+//19
+/*
 console.log(itCompanies.slice(parseInt(itCompanies.length / 2), (itCompanies.length / 2).ceil));
-let midCompany 
+console.log(midCompany);
+console.log(itCompanies.slice(itCompanies[midCompany], 1));
+console.log(itCompanies, midCompany,)
+console.log(itCompanies.sort())
+*/
+let midCompany = parseInt(itCompanies.length / 2);
+console.log(itCompanies.slice(midCompany, midCompany + 1));  // <-- result
+console.log(itCompanies.sort().slice(midCompany, midCompany + 1));
+/*
+console.log(itCompanies)
+console.log(itCompanies.reverse())
+console.log(itCompanies)
+*/
+//20
+console.log(itCompanies.shift());
+console.log(itCompanies)
+
+//21
+let itLength = itCompanies.length
+function isCompanyOdd(number) {
+    
+        if (number % 2 == 0) {
+            console.log(itCompanies.pop(midCompany , midCompany + 2))
+        } else {
+            console.log(itCompanies.pop(midCompany))
+        }
+    };
+
+//console.log(itLength, isCompanyOdd(itLength))
+console.log(itLength)
+/*
+console.log(itCompanies.pop())
+console.log(itCompanies)
+
+console.log(itCompanies % 2 == 0);
+!(itCompanies % 2 == 0) 
+    ? console.log(itCompanies.pop(midCompany))
+    : console.log(itCompanies.pop(midCompany, midCompany + 1));
+
+console.log(midCompany)
+console.log(itCompanies)
+*/
+//itCompanies.push('JavasCrypt')
+function isItOdd() {
+if ((itCompanies.length % 2) === 0) {
+    console.log(itCompanies.splice(midCompany - 1, 2))
+} else {
+    console.log(itCompanies.splice(midCompany, 1))
+}
+};
+console.log(itCompanies);
+console.log(isItOdd());
+console.log(itCompanies);
+
+//22
+console.log(itCompanies.pop())
+console.log(itCompanies)
+//23
+console.log(itCompanies.splice(0, itCompanies.length))
+console.log(itCompanies);
+
+//Excercises level 2
+//1
+
+/*
+let countries = import('./countries.js');
+console.log(countries);
+let pattern1 = ",\g"
+*/
+//2
+let text = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+
+const re = /[,.]/g;
+console.log(text.replaceAll(re, '').split(' '));
+let techArray = text.replaceAll(re, '').split(' ');
+console.log(techArray, techArray.length);
+
+/*
+text.replaceAll(', ', ' ');
+console.log(text.replace(/\,./g, ' ').split(' '))
+console.log(text.split(' '), ' ')
+*/
+
+//3
+const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
+console.log(shoppingCart)
+shoppingCart.unshift('Meat');
+console.log(shoppingCart);
+shoppingCart.push('Sugar');
+console.log(shoppingCart);
+shoppingCart.splice(shoppingCart.indexOf('Honey'), 1);
+console.log(shoppingCart);
+shoppingCart.splice(shoppingCart.indexOf('Tea'), 1, 'Green Tea');
+console.log(shoppingCart);
+
+/*
+let noHoney = shoppingCart.filter(item => item !== 'Honey');
+shoppingCart.filter(item => item !== 'Honey');
+console.log(noHoney);
+console.log(shoppingCart.filter(item => item !== 'Honey'));
+*/
+
+//4
+const countries = [
+    'Albania', 
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Ireland',
+    'Japan',
+    'Kenya'
+];
