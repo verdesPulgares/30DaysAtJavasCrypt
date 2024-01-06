@@ -176,7 +176,7 @@ console.log(shoppingCart.filter(item => item !== 'Honey'));
 */
 
 //4
-const countries = [
+/*const countries = [
     'Albania', 
     'Bolivia',
     'Canada',
@@ -188,4 +188,90 @@ const countries = [
     'Ireland',
     'Japan',
     'Kenya'
-];
+];*/
+
+
+import { countries } from "./countries.js";
+console.log(countries);
+
+console.log(countries[countries.indexOf("Ethiopia")])
+if (countries.includes("Ethiopia")) {
+    console.log(countries[4], "ETHIOPIA")
+} else {
+    countries.push("Ethiopia")
+};
+console.log(countries);
+
+//5
+
+import { webTechs } from "./web_tech.js";
+console.log(webTechs);
+if (webTechs.includes("Sass")) {
+    console.log('Sass is a CSS preprocess')
+} else {
+    webTechs.push('Sass')
+};
+console.log(webTechs);
+
+//6
+const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+const backEnd = ['Node','Express', 'MongoDB']
+const fullStack = frontEnd.concat(backEnd)
+console.log(fullStack)
+
+//Excercises: Level 3
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+console.log(ages.sort(), ages[0], ages[ages.length -1])
+console.log(ages)
+//
+let medianAge = parseInt(ages.length / 2);
+console.log(medianAge)
+if (ages.length % 2 === 0) {
+        console.log(ages.slice(medianAge, medianAge + 2), (ages[medianAge] + ages[medianAge + 1]) / 2)
+} else {
+    console.log(ages.slice(medianAge))
+};
+console.log(ages)
+//average
+let sum = 0;
+for (let i = 0; i < ages.length; i++){
+    sum += ages[i]
+}
+console.log(sum, sum / ages.length);
+// 
+let maxAge = ages[ages.length - 1];
+let minAge = ages[0];
+console.log("Max age: " + maxAge + ". Min age: " + minAge + ". Range is: " + (maxAge - minAge));
+//
+let average = sum / ages.length;
+console.log(average);
+function absMachine(a, b) {
+    return Math.abs(a - b)
+}
+
+console.log(Math.abs(minAge, average), Math.abs(maxAge, average));
+
+console.log(absMachine(minAge, average));
+console.log(absMachine(maxAge, average));
+console.log(countries.slice(0, 10));
+console.log(countries)
+//2
+let midCountries = parseInt(countries.length / 2);
+console.log(midCountries)
+//countries.pop() //turn this on and off to check functionalty
+if (countries.length % 2 === 0) {
+    console.log(countries.slice(midCountries, midCountries + 2))
+} else {
+console.log(countries.slice(midCountries, midCountries + 1))
+};
+//3
+console.log(countries)
+if (countries.length % 2 === 0) {
+let intentArray = countries.splice(0, midCountries);
+console.log(intentArray, countries) 
+} else {
+    let intentArrayOddCase = countries.splice(0, midCountries + 1);
+console.log(intentArrayOddCase, countries)
+};
+
+//after a few days without computer we are back to finish day 5 challenges. lets goooo
