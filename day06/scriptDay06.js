@@ -242,3 +242,19 @@ function randomIdGenerator() {
 
 let randomId = randomIdGenerator();
 console.log(randomId);
+
+//excercises level 2
+//1
+//debugger
+function randomIdGenerator2() {
+  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomId = '';
+  for (let i = 0; i <= Math.floor(Math.random() * 100); i++) {
+    let randomIndex = Math.floor(Math.random() * characters.length)
+    randomId += characters.charAt(randomIndex);
+  }
+  return randomId;
+};
+
+let randomId2 = randomIdGenerator2();
+console.log(randomId2);
