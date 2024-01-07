@@ -180,7 +180,7 @@ console.log(arraySum);
 //debugger
 function createArr() {
   let arrOfRndm = [];
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i <= 4; i++) {
     arrOfRndm.push(Math.random());
     }
   console.log(arrOfRndm)
@@ -196,10 +196,49 @@ for (let i = 0; i > 5; i++) {
   console.log(array$i)
 };
 
+ 
+
 function createArray() {
   let arrOfRndm = [] */
   
 //14
+//debugger
+function randomSingularitiesGenerator () {
+  let minNumber = 0;
+  let maxNumber = 100;
+  let arrayLenght = 5;
 
+ /*
+ //this parts seems to make no functional difference 
+ if (arrayLenght > maxNumber - minNumber + 1) {
+    console.error("error: array is too long")
+    return null;
+  }*/
 
+  let uniqueNumbers = [];
+  while (uniqueNumbers.length < arrayLenght) {
+    let randomNum = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+    if (!uniqueNumbers.includes(randomNum)) {
+      uniqueNumbers.push(randomNum);
+    }
+  }
+  return uniqueNumbers
+}
+let randomArray = randomSingularitiesGenerator();
+console.log(randomArray);
+console.log(randomSingularitiesGenerator());
 
+//15
+//debugger
+function randomIdGenerator() {
+  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomId = '';
+  for (let i = 0; i <= 6; i++) {
+    let randomIndex = Math.floor(Math.random() * characters.length)
+    randomId += characters.charAt(randomIndex);
+  }
+  return randomId;
+};
+
+let randomId = randomIdGenerator();
+console.log(randomId);
