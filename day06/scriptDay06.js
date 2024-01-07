@@ -80,3 +80,126 @@ for (let i = 0; i <= 10; i++) {
   console.log(i + " x " + i + " = " + (i * i))
 };
 
+//6
+console.log("i\ti^2\ti^3")
+for (let i = 0; i <= 10; i++) {
+  console.log(i + "\t" + i*i + "\t" + i*i*i)
+};
+
+//7
+//debugger;
+for (let i = 0; i <= 100; i++) {
+  if (i % 2 === 0) {
+    console.log(i)
+  }
+};
+
+//8
+//debugger
+for (let i = 0; i <=100; i++) {
+  if (!(i % 2 ===0))
+  console.log(i)
+};
+//9
+//debugger
+/*for (let i = 0; i <= 100; i++) {
+  if (i <= 2) {
+    continue
+  } else if (i % 2 === 0 || i % 3 === 0) {
+    continue
+  } else if (i % 5 === 0 || i % 7 === 0) {
+    continue
+  } else {
+    for (let ii = 2; ii <= Math.sqrt(i); ii++) {
+      if (i % ii === 0) {
+        console.log(i);
+      }
+    }
+  }
+}
+*/
+//debugger
+function isPrime(number) {
+  if (number < 2) {
+    return false
+  }
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+//debugger
+for (let i = 0; i <= 100; i++) {
+  if (isPrime(i)) {
+    console.log(i)
+  }
+};
+
+//10
+let sumLoop = 0;
+for (let i = 0; i <= 100; i++) {
+  sumLoop += i
+};
+console.log(sumLoop);
+
+
+//11
+//debugger
+let oddSum = 0;
+let evenSum = 0;
+for (let i = 0; i <= 100; i++) {
+  if (i % 2 === 0) {
+    evenSum += i
+  } else {
+    oddSum += i
+  }
+}
+console.log(oddSum, evenSum);
+
+//12
+//debugger
+
+let oddSm = 0;
+let evenSm = 0;
+let arraySum = [];
+for (let i = 0; i <= 100; i++) {
+  if (i % 2 === 0) {
+    evenSm += i
+  } else {
+    oddSm += i
+  }
+}
+arraySum.push(oddSm);
+arraySum.push(evenSm)
+console.log(arraySum);
+
+//13
+//debugger
+function createArr() {
+  let arrOfRndm = [];
+    for (let i = 0; i <= 5; i++) {
+    arrOfRndm.push(Math.random());
+    }
+  console.log(arrOfRndm)
+};
+createArr();
+
+/* here lies the cemetery of dead intents
+arrOfRndm.push(Math.random() * 10);
+let rndmNumber = parseInt(Math.random() * 10);
+
+for (let i = 0; i > 5; i++) {
+  let array$i = [Math.random, Math.random, Math.random, Math.random, Math.random]
+  console.log(array$i)
+};
+
+function createArray() {
+  let arrOfRndm = [] */
+  
+//14
+
+
+
