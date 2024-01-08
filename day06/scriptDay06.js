@@ -258,3 +258,79 @@ function randomIdGenerator2() {
 
 let randomId2 = randomIdGenerator2();
 console.log(randomId2);
+
+//2
+//debugger
+function hexGen() {
+  let characters = '0123456789abcdef';
+  let randomHex = '#';
+  for (let i = 0; i <= 5; i++) {
+    let randomIndex = Math.floor(Math.random() * characters.length)
+    randomHex += characters.charAt(randomIndex);
+  }
+  return randomHex
+};
+
+let randomHex = hexGen();
+console.log(randomHex);
+
+//3
+//debugger
+function randomRGBGenerator () {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+
+  return 'rgb(' + red + ',' + green + ',' + blue + ')';
+}
+const randomRGBColor = randomRGBGenerator();
+console.log(randomRGBColor);
+
+//4
+//debugger
+let upperCaseCountries = [];
+for (let i = 0; i <= countries.length - 1; i++) {
+  upperCaseCountries.push(countries[i].toUpperCase())
+};
+console.log(countries); 
+console.log(upperCaseCountries);
+
+//5
+//debugger
+let lengthArray = [];
+for (let i = 0; i < upperCaseCountries.length; i++) {
+  lengthArray.push(upperCaseCountries[i].length)
+};
+console.log(lengthArray);
+
+//6
+//debugger
+let arrayOfArrays = [];
+for (let i = 0; i < countries.length; i++) {
+  let insiderArray = [];
+  insiderArray.push(countries[i], upperCaseCountries[i].slice(0,3), lengthArray[i])
+  arrayOfArrays.push(insiderArray)
+};
+console.log(arrayOfArrays);
+
+//7
+//debugger
+/*
+let landArray = arrayOfArrays.filter(item => item.includes('land'));
+function lookingForLand() {
+  for (let i = 0; i < arrayOfArrays.length; i++) {
+    if (arrayOfArrays.filter(item => item.includes('land'))) {
+      landArray.push(arrayOfArrays[i, i, 0])
+    }
+  }
+};
+lookingForLand();
+console.log(landArray);
+*/
+console.log(arrayOfArrays[0])
+/*debugger
+
+let landArray = []
+for (let i = 0; i >arrayOfArrays.length; i++) {
+  arrayOfArrays[i].forEach()
+}*/
