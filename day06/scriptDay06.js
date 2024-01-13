@@ -348,7 +348,7 @@ function areThereCountriesEndingWithIa() {
 areThereCountriesEndingWithIa();
 
 //9
-debugger
+//debugger
 let longestWord = '';
 function findLongestWord (arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -484,24 +484,59 @@ let countriesWith4Characters = importedCountries.filter((word) => word.includes(
 console.log(countriesWith4Characters);
 
 //5
-debugger
-let longestImportedWord = '';
+//debugger
 function findLongestImportedWord (arr) {
+  let longestImportedWord = '';
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longestImportedWord.length) {
       longestImportedWord = arr[i];
     }
-  }
-  return longestImportedWord
+  };
+  return longestImportedWord;
 };
 
-findLongestImportedWord(importedCountries);
+console.log(findLongestImportedWord(importedCountries));
 
+/*6 is to extract all the countries containing the word 'land'.
+since it has already been (partially) done on excercise 4 ( i didnt extract it, 
+just made a new one without mmutating the original array), 
+this time i will extract them into a new array, modyfing the original one.
+*/
+console.log(importedCountries);
+
+
+//debugger
+const landFullCountries = [];
+function separarLandFromNonLand (array){
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].includes('land')){
+      landFullCountries.push(array[i]);
+      array.splice(array[i], 1);
+    }
+  };
+  return landFullCountries;
+
+};
+console.log(separarLandFromNonLand(importedCountries));
+
+console.log(importedCountries.length);
 //7 countries.filter((word) => word.includes('land'));
 
 
 
 /* cemetery of processes and fallen intents
+
+
+;
+function findLongestCountry(arr) {
+  let longestWord = ''
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord
+};
 
 for (let i = 0; i < countries.length; i++) {
 
