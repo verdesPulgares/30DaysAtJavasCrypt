@@ -507,24 +507,59 @@ console.log(importedCountries);
 
 //debugger
 const landFullCountries = [];
+const landlessCountries = [];
 function separarLandFromNonLand (array){
   for (let i = 0; i < array.length; i++) {
     if (array[i].includes('land')){
       landFullCountries.push(array[i]);
-      array.splice(array[i], 1);
-    }
+    } else {
+      landlessCountries.push(array[i]);
+    };
   };
   return landFullCountries;
 
 };
 console.log(separarLandFromNonLand(importedCountries));
+//7 
+//debugger;
+function doesItHave4Characters (array) {
+  let elementsWith4Characters = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length == 4) {
+      elementsWith4Characters.push(array[i])
+    }
+  }
+  return elementsWith4Characters;
+};
 
-console.log(importedCountries.length);
-//7 countries.filter((word) => word.includes('land'));
+console.log(doesItHave4Characters(importedCountries));
 
+//8
+//debugger;
+function doesItHave2orMoreWords (array) {
+  let elementsWith2orMoreWords = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].includes(' ')) {
+      elementsWith2orMoreWords.push(array[i])
+    }
+  };
+  return elementsWith2orMoreWords;
+};
 
+console.log(doesItHave2orMoreWords(importedCountries));
 
+//9
+debugger;
+function reverseAndCapitalize(array) {
+  let reversedAndCapitalizedArray = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    reversedAndCapitalizedArray.push(array[i].toUpperCase());
+  };
+  return reversedAndCapitalizedArray;
+};
+console.log(reverseAndCapitalize(importedCountries));
 /* cemetery of processes and fallen intents
+countries.filter((word) => word.includes('land'));
 
 
 ;
