@@ -377,3 +377,72 @@ function userIdGenerator() {
 const randomUserId = userIdGenerator();
 console.log(randomUserId);
 
+//Exercises: level 
+/*1 didnt do it with prompt because of functional issues. it would have made it very cornersome to keep on working on the rest of the exercises, asking me to prompt and re prompt every time i reloaded the page. i know how prompt works.
+it would be like
+let promptLength = Number(window.prompt())
+let promptQuantity = Number(window.prompt())
+etc.
+*/
+//debugger;
+function userIdGeneratedByUser(lengthOfId, quantityOfId) {
+    const chachachars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let userGeneratedIds = '';
+    let userId = '';
+    for (let i = 0; i < quantityOfId; i++) {
+        for (let i = 1; i <= lengthOfId; i++) {
+            let idPart = `${chachachars.charAt(Math.floor(Math.random() * 62))}`;
+            userGeneratedIds += (i === lengthOfId) ? `${idPart}\n` : idPart;
+        };
+    };
+    return userGeneratedIds
+};
+
+console.log(userIdGeneratedByUser(10, 5));
+
+//2
+//debugger;
+function rgbColorGenerator() {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    let rgbColor = `rgb(${red},${green},${blue})`;
+    return rgbColor;
+};
+console.log(rgbColorGenerator());
+
+//3
+//debugger;
+function hexColorGenerator() {
+    let hexChars = '0123456789abcdef';
+    let r = `${hexChars.charAt(Math.floor(Math.random() * 16))}${hexChars.charAt(Math.floor(Math.random() * 16))}`;
+    let g = `${hexChars.charAt(Math.floor(Math.random() * 16))}${hexChars.charAt(Math.floor(Math.random() * 16))}`;
+    let b = `${hexChars.charAt(Math.floor(Math.random() * 16))}${hexChars.charAt(Math.floor(Math.random() * 16))}`;
+    let hexColor = `#${r}${g}${b}`;
+    return hexColor;    
+};
+console.log(hexColorGenerator());
+
+function arrayOfHexaColors(n) {
+    let hexColorArray = [];
+    for (let i = 0; i < n; i++) {
+        let tempHex = hexColorGenerator();
+        hexColorArray.push(tempHex);
+    };
+    return hexColorArray;
+};
+console.log(arrayOfHexaColors(7));
+
+//4
+//debugger;
+function arrayofRGBColorsGenerator(n) {
+    let rgbArray = [];
+    for (let i = 0; i < n; i++) {
+        let tempRGB = rgbColorGenerator();
+        rgbArray.push(tempRGB);
+    };
+    return rgbArray;
+};
+console.log(arrayofRGBColorsGenerator(2));
+
+//5
