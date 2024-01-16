@@ -90,7 +90,7 @@ function convertCelsiusToFarenheit(oC) {
 console.log(convertCelsiusToFarenheit(30));
 
 //13
-debugger;
+//debugger;
 function calculateBmi(weight, height) {
     let bmi = weight / (height * height);
     if (bmi < 18.5) {
@@ -104,3 +104,203 @@ function calculateBmi(weight, height) {
     };
 };
 console.log(calculateBmi(72, 1.80));
+
+//14
+//debugger;
+function checkSeason (mes){
+    let month = mes.toLowerCase();
+    let summer = "Summer";
+    let autumn = "Autumn";
+    let winter = "Winter";
+    let spring = "Spring";
+    if (month == "december" || month == "january" || month == "february") {
+        return summer;
+    } else if (month == "march" || month == "april" || month == "may") {
+        return autumn;
+    } else if (month == "june" || month == "july" || month == "august") {
+        return winter;
+    } else if (month == "september" || month == "october" || month == "november") {
+        return spring;
+    }
+};
+console.log(checkSeason("DeCember"));
+
+//15
+//debugger;
+function findMax(n1, n2, n3) {
+    let largestArgument = 0;
+    if (n1 > largestArgument) {
+        largestArgument = n1
+    };
+    if (n2 > largestArgument) {
+        largestArgument = n2
+    };
+    if (n3 > largestArgument) {
+        largestArgument = n3
+    };
+    return largestArgument;
+};
+console.log(findMax(32, 16, 45));
+
+//Exercises: Level 2
+//1
+//debugger;
+function solveLinearEquation(a, b, c, x, y) {
+    let result = a * x + b * y + c;
+    return result;
+};
+console.log(solveLinearEquation(4, 2, 6, 5, 3));
+
+//2
+//debugger;
+function solveQuadEquation (a, b, c, x) {
+    let result = a * x * 2 + b * x + c;
+    return result;
+};
+console.log(solveQuadEquation(3, 6, 4, 67));
+
+//3
+//debugger;
+function printArray(arr) {
+    for (const element of arr) {
+        console.log(element)
+    };
+};
+let testArray = [1, 2, 3, 4, "ads"];
+printArray(testArray);
+
+//4
+//debugger;
+function showDateTime() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    const hours = currentDate.getHours().toString().padStart(2, '0');
+    const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+    const formattedDateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
+
+    console.log(formattedDateTime);
+};
+
+showDateTime();
+
+//5
+//debugger;
+function swapValues(x, y) {
+    let temp = x;
+    x = y;
+    y = temp;
+    return {x, y};
+};
+console.log(swapValues(2, 26));
+
+//6
+//debugger;
+function reverseArray(arr) {
+    let reversedArray = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        reversedArray.push(arr[i]);
+    };
+    return reversedArray;
+};
+let arrayToBeReversed = [1, 2, 3, 4, 5, 6, 7];
+console.log(reverseArray(arrayToBeReversed));
+
+//7
+//debugger;
+function capitalizeArray (arr) {
+    const capitalizedArray = [];
+    for (const element of arr) {
+        capitalizedArray.push(element.toUpperCase());
+    }
+    return capitalizedArray;
+};
+let arrayToBeCapitalized = ["pingo", "pimba", "3 en la cara"];
+console.log(capitalizeArray(arrayToBeCapitalized));
+
+//8
+//debugger;
+let preExistentArray = [1, 2];
+function addItem(item) {
+    preExistentArray.push(item);
+    return preExistentArray;
+};
+console.log(addItem(3));
+
+//9
+function removeItem(i) {
+    preExistentArray.splice(i, 1)
+    return preExistentArray;
+};
+console.log(removeItem(1));
+
+//10
+//debugger;
+function sumOfNumbers(n) {
+    if (n < 1 || !Number.isInteger(n)) {
+        console.log("please provide a positive intenger greater than 0");
+        return;
+    };
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    };
+    return sum;
+};
+let result = sumOfNumbers(5);
+console.log(result);
+
+//11
+//debugger;
+function sumOfOdds(n) {
+    if (n < 1 || !Number.isInteger(n)) {
+        console.log("please provide a positive intenger greater than 0");
+    };
+    let oddsSum = 0;
+    for (let i = 0; i <= n; i++) {
+        if (i % 2 == !0) {
+            oddsSum += i;
+        };
+    };
+    return oddsSum;
+};
+let oddResult = sumOfOdds(100);
+console.log(oddResult);
+
+//12
+//debugger;
+function sumOfEven(n) {
+    if (n < 1 || !Number.isInteger(n)) {
+        console.log("please provide a positive intenger greater than 0");
+    };
+    let evenSum = 0;
+    for (let i = 0; i <= n; i++) {
+        if (i % 2 == 0) {
+            evenSum += i;
+        };
+    };
+    let result = evenSum;
+    return result;
+};
+console.log(sumOfEven(100))
+
+//13
+//debugger;
+function evensAndOdds(n) {
+    if (n < 1 || !Number.isInteger(n)) {
+        console.log("please provide a positive intenger greater than 0");
+    };
+    let oddSum = 0;
+    let evenSum = 0;
+    for (let i = 0; i <= n; i++) {
+        if (i % 2 == 0) {
+            evenSum += i;
+        } else if (i % 2 == !0) {
+            oddSum += i;
+        };
+    };
+    let result = `The sum of odds in range adds up to ${oddSum}.\nThe sum of evens in range adds up to ${evenSum}.`;
+    return result;
+};
+console.log(evensAndOdds(100));
