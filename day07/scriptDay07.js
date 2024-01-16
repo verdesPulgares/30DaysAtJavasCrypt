@@ -446,3 +446,33 @@ function arrayofRGBColorsGenerator(n) {
 console.log(arrayofRGBColorsGenerator(2));
 
 //5
+//debugger;
+function convertHexToRgb(hex) {
+    hex = hex.replace(/^#/, '');
+    let bigint = parseInt(hex, 16);
+    let r = (bigint >> 16) & 255;
+    let g = (bigint >> 8) & 255;
+    let b = bigint & 255;
+    let rgbedHex = `${r},${g},${b}`;
+    return rgbedHex;
+};
+
+let hextest = hexColorGenerator();
+console.log(hextest);
+console.log(convertHexToRgb(hextest));
+
+//6
+debugger;
+function convertRgbToHex(r, g, b) {
+    r = Math.min(255, Math.max(0, r));
+    g = Math.min(255, Math.max(0, g));
+    b = Math.min(255, Math.max(0, b));
+
+    const hexR = r.toString(16).padStart(2, '0');
+    const hexG = g.toString(16).padStart(2, '0');
+    const hexB = b.toString(16).padStart(2, '0');
+
+    const hexColor = `${hexR},${hexG},${hexB}`;
+    return hexColor;
+};
+console.log(convertRgbToHex(25, 45, 143));
