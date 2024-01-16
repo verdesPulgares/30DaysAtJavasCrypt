@@ -304,3 +304,76 @@ function evensAndOdds(n) {
     return result;
 };
 console.log(evensAndOdds(100));
+
+//14
+//debugger;
+function sumAnyNumberOfArguments(...args) {
+    let sumOfAllArguments = 0;
+    for (let i = 0; i < args.length; i++) {
+        sumOfAllArguments += args[i];
+    };
+    return sumOfAllArguments;
+};
+console.log(sumAnyNumberOfArguments(3, 5, 11, 7, 4));
+
+//15
+//debugger;
+function randomUserIp() {
+    const part1 = Math.floor(Math.random() * 256);
+    const part2 = Math.floor(Math.random() * 256);
+    const part3 = Math.floor(Math.random() * 256);
+    const part4 = Math.floor(Math.random() * 256);
+
+    const randomizedUserIp = `${part1}.${part2}.${part3}.${part4}`;
+
+    return randomizedUserIp;
+};
+console.log(randomUserIp());
+
+//16
+//debugger;
+function generateRandomMacAdress() {
+    const hexChars = '0123456789ABCDEF';
+    let macAddress = '';
+    for (let i = 0; i < 6; i++) {
+        const part = `${hexChars.charAt(Math.floor(Math.random() * 16))}${hexChars.charAt(Math.floor(Math.random() * 16))}`;
+        macAddress += (i === 5) ? part : `${part}:`;
+    };
+    return macAddress;
+};
+const randomAdress = generateRandomMacAdress();
+console.log(randomAdress); 
+
+//17
+//debugger;
+function randomHexaNumberGenerator() {
+    const hexChars = '0123456789abcdef';
+    let randomHexaNumber = '#';
+    for (let i = 0; i < 6; i++) {
+        let hexPart = `${hexChars.charAt(Math.floor(Math.random() * 16))}`;
+        randomHexaNumber += hexPart;
+    };
+    return randomHexaNumber;
+};
+const randomHexNumber = randomHexaNumberGenerator();
+console.log(randomHexNumber);
+
+//18
+//debugger;
+/*
+let chachacha = "abcdefghijklmnopqrstuvwxyz";
+console.log(chachacha.toUpperCase());
+console.log("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".length);
+*/
+function userIdGenerator() {
+    const chachachars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let userId = '';
+    for (let i = 0; i < 7; i++) {
+        let idPart = `${chachachars.charAt(Math.floor(Math.random() * 62))}`;
+        userId += idPart;
+    };
+    return userId;
+};
+const randomUserId = userIdGenerator();
+console.log(randomUserId);
+
