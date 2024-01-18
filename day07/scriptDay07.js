@@ -462,7 +462,7 @@ console.log(hextest);
 console.log(convertHexToRgb(hextest));
 
 //6
-debugger;
+//debugger;
 function convertRgbToHex(r, g, b) {
     r = Math.min(255, Math.max(0, r));
     g = Math.min(255, Math.max(0, g));
@@ -476,3 +476,226 @@ function convertRgbToHex(r, g, b) {
     return hexColor;
 };
 console.log(convertRgbToHex(25, 45, 143));
+
+//7
+//debugger;
+function generateColors(colorSystem, numberOfColors) {
+    let rgb = 'rgb';
+    let hexa = 'hexa';
+    let result;
+    if (colorSystem == hexa) {
+        if (numberOfColors == 1) {
+        
+            result = hexColorGenerator()
+        } else {
+            result = arrayOfHexaColors(numberOfColors)
+        };
+    } else if (colorSystem == rgb) {
+        if (numberOfColors == 1) {
+            result = rgbColorGenerator()
+        } else {
+            result = arrayofRGBColorsGenerator(numberOfColors)
+        };
+    };
+    return result;
+};
+console.log(generateColors('rgb', 3));
+
+//8
+//debugger;
+function shuffleArray(array) {
+    const shuffledArray = array;
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+};
+let shuffleTestArray = [1, 2, 3, 4, 5];
+console.log(shuffleArray(shuffleTestArray));
+
+//9
+//debugger;
+function factorial(n, factorial) {
+    let result = n;
+    for (let i = 0; i < factorial; i++) {
+        result *= n;
+    }
+    return result
+};
+console.log(factorial(3, 3));
+
+//10
+//debugger;
+function isEmpty(parameter) {
+    if (parameter == null) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+let test;
+let test2 = '"true"';
+console.log(isEmpty(test), isEmpty(test2));
+
+//11
+//debugger;
+function sum(...args) {
+    let sumResult = 0;
+    for (const element of args) {
+        sumResult += element
+    };
+    return sumResult;
+};
+
+console.log(sum(1, 2, 3, 6, 7));
+
+//12
+//debugger;
+function sumOfArrayItems(array) {
+    let result = 0;
+    let notResults = [];
+    for (let i = 0; i < array.length; i++) {
+        if (typeof(array[i]) == 'number') {
+            result += array[i]
+        } else {
+            let notResult = `${array[i]} is not a number`;
+            notResults.push(notResult);
+        };
+    };
+    return result + "\n" + notResults;
+};
+testArray = [1, 2, 3, 2, 5, "number", 77, true, false];
+console.log(sumOfArrayItems(testArray));
+
+//13
+//debugger;
+function average(array) {
+    let result = 0;
+    let notResults = [];
+    for (let i = 0; i < array.length; i++) {
+        if (typeof(array[i]) == 'number') {
+            result += array[i]
+        } else {
+            let notResult = `${array[i]} is not a number`;
+            notResults.push(notResult);
+        };
+    };
+    let averagedResult = result / array.length;
+    return averagedResult + "\n" + notResults;
+};
+console.log(testArray, testArray.length);
+console.log(average(testArray));
+
+//14
+//debugger;
+function modifyArray(array) {
+    const modifiedArray = array;
+    if (modifiedArray.length >= 4) {
+    modifiedArray.splice(4, 1, `${modifiedArray[4].toUpperCase()}`);
+    };
+    return modifiedArray;
+}
+let testyFruitArray = ['Avocado', 'Tomato', 'Potato', 'Mango', 'Lemon', 'Carrot'];
+console.log(modifyArray(testyFruitArray));
+
+//15
+//debugger;
+function isPrime(number) {
+    if (number < 2) {
+        return false;
+    }
+    for (let i = 1; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            return false;
+        }
+        else {
+            return true
+        };
+    };
+};
+console.log(isPrime(2));
+
+//16
+//debugger;
+function areAllUnique(array) {
+    const uniqueSet = new Set();
+    for (const item of array) {
+        if (uniqueSet.has(item)) {
+            return false;
+        }
+        uniqueSet.add(item);
+    }
+    return true;
+}
+
+console.log(areAllUnique(testArray));
+console.log(areAllUnique(testyFruitArray));
+
+//17
+//debugger;
+function sameDataTypesArrayFinder(array) {
+    const firstType = typeof array[0];
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[i] !== firstType) {
+            return false
+        }
+    }
+    return true;
+};
+let uniqueArray = [1, 'a'];
+let uniqueArray2 = [1, 2, 3]
+console.log(sameDataTypesArrayFinder(testArray));
+console.log(sameDataTypesArrayFinder(uniqueArray));
+console.log(sameDataTypesArrayFinder(uniqueArray2));
+
+//18
+//debugger;
+function isValidVariable(variableName) {
+    if (typeof variableName !== 'string') {
+        return false;
+    }
+    if (!/^[a-zA-Z$_]/.test(variableName)) {
+        return false;
+    }
+    if (!/^[a-zA-Z$_][a-zA-Z0-9$_]*$/.test(variableName)) {
+        return false;
+    }
+    return true;
+};
+
+let validName = "Carlos777";
+let invalidName = "8ad#ulito";
+console.log(isValidVariable(validName));
+console.log(isValidVariable(invalidName));
+
+//19
+//debugger;
+function generateRandomNumbers() {
+    const uniqueNumbers = new Set();
+    while (uniqueNumbers.size < 7) {
+        const randomNumber = Math.floor(Math.random() * 10);
+        uniqueNumbers.add(randomNumber);
+    }
+    return Array.from(uniqueNumbers);
+}
+const randomNumbers = generateRandomNumbers();
+console.log(randomNumbers);
+//20
+//debugger;
+function reverseArray(array) {
+    let copyArray = array.reverse();
+    return copyArray;
+};
+console.log(reverseArray(testyFruitArray))
+
+function arrayReverser(array) {
+    let reversedArray = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+        reversedArray.push(array[i])
+    };
+    return reversedArray;
+};
+console.log(testArray, arrayReverser(testArray));
+
