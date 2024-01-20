@@ -159,38 +159,55 @@ console.log(entries)
 
 //Exercises Level 3
 //01
+//debugger;
 const personAccount = {
   firstName: 'Fulano',
   lastName: 'de Tales',
-  incomes: {incomeA: 100, incomeB: 200, incomeC: 300},
+  incomes: {incomeA: 100, incomeB: 200, incomeC: 300, incomed: 1000},
   expenses: {expenseA: 35, expense2: 250, expenseC: 100},
   totalIncome: function() {
     let totalIncome = 0;
-    for(const income of Object.values(personAccount[incomes])) {
-      let incomeX = Object.values(incomes.income);
+    for(const income in this.incomes) {
+      const incomeX = personAccount.incomes[income]; //aca esta la cuestion
       totalIncome += incomeX
     }
     return totalIncome
   },
   totalExpense: function() {
-
+    let totalExpenses = 0;
+    for (const expense in this.expenses) {
+      const expenseX = personAccount.expenses[expense];
+      totalExpenses += expenseX
+    }
+    return totalExpenses;
   },
   accountInfo: function() {
-  
+    return `My name is ${personAccount.firstName} ${personAccount.lastName} and im a promising software developer`;
   },
-  addIncome: function() {
-
+  
+  addIncome: function(key, value) {
+    personAccount.incomes[key, value]
+    return personAccount.incomes[key, value]
   },
   addExpense: function() {
 
   },
   accountBalance: function() {
-    return incomes -= expenses
+    let totalIncomes = this.totalIncome();
+    let totalExpenses = this.totalExpense();
+    return totalIncomes - totalExpenses
   }
 };
+
 console.log(personAccount.totalIncome());
+console.log(personAccount.incomes.incomeA);
+console.log(personAccount.totalExpense());
+console.log(personAccount.accountBalance());
+console.log(personAccount.accountInfo())
+debugger;
+console.log(personAccount.addIncome('incomeD', 400))
 
-
+console.log(personAccount.totalIncome())
 /*
 console.log(users.Paul.skills.length);
 function whoHasMoreSkills() {
