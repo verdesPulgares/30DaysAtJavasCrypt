@@ -186,11 +186,12 @@ const personAccount = {
   },
   
   addIncome: function(key, value) {
-    personAccount.incomes[key, value]
-    return personAccount.incomes[key, value]
+    personAccount.incomes[key] = value //gotta add this to the Object
+    return personAccount.incomes
   },
-  addExpense: function() {
-
+  addExpense: function(key, value) {
+    personAccount.expenses[key] = value
+    return personAccount.expenses
   },
   accountBalance: function() {
     let totalIncomes = this.totalIncome();
@@ -204,11 +205,153 @@ console.log(personAccount.incomes.incomeA);
 console.log(personAccount.totalExpense());
 console.log(personAccount.accountBalance());
 console.log(personAccount.accountInfo())
-debugger;
+//debugger;
 console.log(personAccount.addIncome('incomeD', 400))
-
+console.log(personAccount.addExpense('expenseZ', 683))
 console.log(personAccount.totalIncome())
-/*
+console.log(personAccount.totalExpense())
+console.log(personAccount.accountBalance())
+
+//02
+const usersCollection = [
+  {
+      _id: 'ab12ex',
+      username: 'Alex',
+      email: 'alex@alex.com',
+      password: '123123',
+      createdAt:'08/01/2020 9:00 AM',
+      isLoggedIn: false
+  },
+  {
+      _id: 'fg12cy',
+      username: 'Asab',
+      email: 'asab@asab.com',
+      password: '123456',
+      createdAt:'08/01/2020 9:30 AM',
+      isLoggedIn: true
+  },
+  {
+      _id: 'zwf8md',
+      username: 'Brook',
+      email: 'brook@brook.com',
+      password: '123111',
+      createdAt:'08/01/2020 9:45 AM',
+      isLoggedIn: true
+  },
+  {
+      _id: 'eefamr',
+      username: 'Martha',
+      email: 'martha@martha.com',
+      password: '123222',
+      createdAt:'08/01/2020 9:50 AM',
+      isLoggedIn: false
+  },
+  {
+      _id: 'ghderc',
+      username: 'Thomas',
+      email: 'thomas@thomas.com',
+      password: '123333',
+      createdAt:'08/01/2020 10:00 AM',
+      isLoggedIn: false
+  }
+  ];
+
+  const products = [
+{
+  _id: 'eedfcf',
+  name: 'mobile phone',
+  description: 'Huawei Honor',
+  price: 200,
+  ratings: [
+    { userId: 'fg12cy', rate: 5 },
+    { userId: 'zwf8md', rate: 4.5 }
+  ],
+  likes: []
+},
+{
+  _id: 'aegfal',
+  name: 'Laptop',
+  description: 'MacPro: System Darwin',
+  price: 2500,
+  ratings: [],
+  likes: ['fg12cy']
+},
+{
+  _id: 'hedfcg',
+  name: 'TV',
+  description: 'Smart TV:Procaster',
+  price: 400,
+  ratings: [{ userId: 'fg12cy', rate: 5 }],
+  likes: ['fg12cy']
+}
+];
+//debugger;
+//debugger
+function randomIdGenerator() {
+  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomId = '';
+  for (let i = 0; i <= 5; i++) {
+    let randomIndex = Math.floor(Math.random() * characters.length)
+    randomId += characters.charAt(randomIndex);
+  }
+  return randomId;
+};
+
+function showDateTime() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+  const day = currentDate.getDate().toString().padStart(2, '0');
+  const hours = currentDate.getHours().toString().padStart(2, '0');
+  const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+  const formattedDateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
+
+  return formattedDateTime;
+};
+
+
+function userSignUp(userName, email, password) {
+  const providedEmail = email;
+  const newUSer = {
+    _id: randomIdGenerator(),
+    username: userName,
+    email: email,
+    password: password,
+    createdAt: showDateTime(),
+    isLoggedIn: false
+  };
+//debugger;
+  for (const email in usersCollection.user) {
+    if (providedEmail == this.user.email) {
+      return `There is an account in existance linked to that email. Please verify.`
+    } 
+  };
+  newUSer.isLoggedIn = true
+  usersCollection.newUser = Object(newUSer);
+  return usersCollection;
+};
+
+console.log(userSignUp('pimba', 'martha@martha.com', 'chichang4'))
+    
+
+    /*
+    addIncome: function(key, value) {
+      personAccount.incomes[key] = value //gotta add this to the Object
+      return personAccount.incomes
+  }
+
+*/
+
+
+
+/*{
+      _id: 'ab12ex',
+      username: 'Alex',
+      email: 'alex@alex.com',
+      password: '123123',
+      createdAt:'08/01/2020 9:00 AM',
+      isLoggedIn: false
+  }
 console.log(users.Paul.skills.length);
 function whoHasMoreSkills() {
     let userWithTheMostSkills = null;
