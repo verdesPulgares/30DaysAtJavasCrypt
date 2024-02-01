@@ -71,7 +71,7 @@ y reduce te unifica los resultados de un array a uno (por ejemplo sumar todos lo
 */
 
 //02
-debugger;
+//debugger;
 const calcularIVA = (n) => n * 1.21;
 
 function a(item, index) {
@@ -212,5 +212,102 @@ const sumOfNumbers = numbers.reduce((acc, cur) => acc + cur, 0)
 console.log(sumOfNumbers)
 
 //18 tengo que hacer la callback function que toma acc y cur
-const europeanCountries = countries.reduce((acc, cur) => acc + cur, 'Estonia, ')
+const europeanCountries = countries.reduce((acc, country, index, array) => {
+    if (index === 0) {
+        return acc + country;
+    } else if (index === countries.length - 1) {
+        return acc + ', and ' + country + ' are north european countries.';    
+    } else {
+        return acc + ', ' + country;
+    }
+}, 'Estonia, ');
 console.log(europeanCountries)
+
+/* 19 some check if some elements are similiar in one aspect, 
+whereas every checks if all elements are similar in one aspect */
+
+//20
+const areSome7lengthed = names.some((name) => name.length < 7)
+console.log(areSome7lengthed, names)
+
+//21
+const areEveryLand = countries.every((country) => country.includes('land'));
+console.log(areEveryLand)
+
+/* 22 find returns the first element matching the conditions,
+findIndex returns the index of the first element matching the condition */
+
+//23
+const firstSixLettersCountry = countries.find((country) => country.length === 6)
+console.log(firstSixLettersCountry)
+
+//24
+const indexFirstSixLettersCountry = countries.findIndex((country) => country.length === 6)
+console.log(indexFirstSixLettersCountry)
+
+//25
+const findNorwayIndex = countries.findIndex((country) => country === 'Norway');
+console.log(findNorwayIndex)
+
+//26
+const findRussia = countries.findIndex((country) => country === 'Russia');
+console.log(findRussia)
+
+//Exercises: Level 2
+//1 Find the total price of products by chaining two or more array iterators
+//(eg. arr.map(callback).filter(callback).reduce(callback))
+const totalPrice = products.map(item => item.price) //map to extract prices from original object
+.filter((price) => typeof price === "number" && !isNaN(price)) //separate prices with typeof number values
+.reduce((acc, price) => acc + price, 0); //sum them all up
+console.log(totalPrice)
+
+//2
+const totalPriceByReduce = products.reduce((acc, item) => {
+    const price = parseFloat(item.price);
+    if (!isNaN(price)) {
+        return acc + price;
+    } else {
+        return acc;
+    }
+}, 0);
+console.log(totalPriceByReduce)
+
+//3
+import { importedCountries } from "./importedCountries.js";
+//console.log(importedCountries);
+debugger;
+
+
+function categorizeCountries1(array) {
+//    const countriesWithLand = array.filter((country) => country.includes('land')); they all work just dont wanna overwork RAM
+    const countriesStartingwithE = array.filter((country) => country.startsWith('E'));
+//    const countriesWithOneOrMoreWords = array.filter((country) => country.includes(' '));
+//    const countriesWith4Letters = array.filter((country) => country.length === 4);
+    return countriesStartingwithE;
+}
+console.log(categorizeCountries1(importedCountries))
+
+//4 la consigna quiere una funcion que tome un array y retorne un array que contenga [letra con la que inicia, numero de paises que inician]
+function firstLetterAndItsUses(array, firstLetter) {
+    const startingLetter = firstLetter;
+    let howManyTimes = 0;
+    const countriesStartingWithSaidLetter = [];
+    const resultingArray = [startingLetter];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].startsWith(startingLetter)) {
+            howManyTimes++;
+            countriesStartingWithSaidLetter.push(array[i]);
+        }
+    };
+    resultingArray.push(howManyTimes)
+    resultingArray.push(countriesStartingWithSaidLetter)
+    return resultingArray;
+}
+console.log(firstLetterAndItsUses(importedCountries, 'Z'))
+
+//5
+function getFirstTenCountries(array) {
+    const firstTen = array.slice(0, 10)
+    return firstTen 
+}
+console.log(getFirstTenCountries(importedCountries))
