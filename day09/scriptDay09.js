@@ -305,9 +305,44 @@ function firstLetterAndItsUses(array, firstLetter) {
 }
 console.log(firstLetterAndItsUses(importedCountries, 'Z'))
 
-//5
+//05
 function getFirstTenCountries(array) {
     const firstTen = array.slice(0, 10)
     return firstTen 
 }
 console.log(getFirstTenCountries(importedCountries))
+
+//06
+function getLastTenCountries(array) {
+    const lastTen = array.slice(array.length - 10)
+    return lastTen;
+};
+console.log(getLastTenCountries(importedCountries));
+
+//07
+function checkWhichLetterStartsTheMostCountries(array) {
+    const initialLetterCount = {};
+
+    //count the occurrences of each initial letter
+    array.forEach(country => {
+        const initialLetter = country.charAt(0).toUpperCase();
+        initialLetterCount[initialLetter] = (initialLetterCount[initialLetter] || 0) + 1;
+    });
+
+    //find the letter with the maximum count
+    let mostUsedLetter;
+    let maxCount = 0;
+
+    for (const letter in initialLetterCount) {
+        if (initialLetterCount[letter] > maxCount) {
+            mostUsedLetter = letter;
+            maxCount = initialLetterCount[letter];
+        }
+    }
+    return `${mostUsedLetter} is used ${maxCount}`;
+};
+console.log(checkWhichLetterStartsTheMostCountries(importedCountries));
+
+//Exercises: level 3
+//01
+
