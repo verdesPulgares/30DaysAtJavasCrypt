@@ -101,3 +101,23 @@ let [ , , jsScore, reactScore ] = scores
 console.log(name, skills, jsScore, reactScore);
 
 
+
+//03 still in the works. gotta say many of this exercises are shit. the complexity curve from one to another is wtf
+const students = [
+  ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]],
+  ['John', ['HTM', 'CSS', 'JS', 'React'], [85, 80, 85, 80]]
+]
+function convertArrayToObject(array) {
+  let resultObject = new Object();
+  for (const element in array) {
+    let [ name, skills, scores ] = student;
+    let tempObject = Object.assign(student);
+    resultObject = Object.assign(tempObject)
+  };
+  return resultObject;
+}
+console.log(convertArrayToObject(students));
+
+
+//04
+
