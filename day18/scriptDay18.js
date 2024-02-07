@@ -46,6 +46,5 @@ fetch(catsAPI)
     })
     .catch(error => console.error(error));
 
-//exercises level 03:
-//01
+//02
 
