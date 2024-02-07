@@ -1,6 +1,7 @@
 const countriesAPI = 'https://restcountries.com/v2/all'
 const catsAPI = 'https://api.thecatapi.com/v1/breeds'
 /*
+//01
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
@@ -27,15 +28,29 @@ fetch(countriesAPI)
 console.log('===== async and await')
 fetchData()
 */
-//Exercise Level 02:
+
+
+//02
+fetch(catsAPI)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(element => {
+            console.log(element.name)
+        });
+        console.log
+    })
+    .catch(error => console.error(error));
+
+
+//Exercise Level 03:
 //01
 fetch(catsAPI)
     .then(response => response.json())
     .then(data => {
         const breedsAndWeights = data.filter(cat => cat.weight.metric);
-        console.log(breedsAndWeights);
+        //console.log(breedsAndWeights);
         const weightsInMetric = breedsAndWeights.map(cat => parseFloat(cat.weight.metric))
-        console.log(weightsInMetric);
+        //console.log(weightsInMetric);
         const averageWeight = (weightsInMetric.reduce((acc, num) => acc + num, 0)) / weightsInMetric.length;
         console.log(`The average weight of cats in metric system is ${averageWeight} kgs`)
 
@@ -47,4 +62,37 @@ fetch(catsAPI)
     .catch(error => console.error(error));
 
 //02
+fetch(countriesAPI)
+    .then(response => response.json())
+    .then(data => {
+        const countriesPopulation = data.filter(country => country.population);
+        console.log(countriesPopulation);
+        
+        const sortedCountries = countriesPopulation.sort(
+            (country1, country2) => (country1.population < country2.population) ? 1 : (country1.population > country2.population) ? -1 : 0); //how to sort by  population size?
+        
+        const topTenSortedCountries = sortedCountries.slice(0, 10);
+        //console.log(topTenSortedCountries)
+
+        const populationsArray = topTenSortedCountries.map(({name, population}) => ({name, population}));
+        console.log(populationsArray)
+    })
+    .catch(error => console.error(error));
+
+//03
+fetch(countriesAPI)
+    .then(response => response.json())
+    .then(data => {
+        const countriesLanguages = data.filter(country => country.languages);
+        console.log(countriesLanguages)
+        const languagesArray = countriesLanguages.map(({languages}) => ({languages}))
+        console.log(languagesArray)
+
+        const test = languagesArray.forEach((element) => {
+            console.log(element.languages.name)
+        })
+        console.log(test)
+       // const languageSet = new Set(languagesArray);
+       // console.log(languageSet)
+    })
 
