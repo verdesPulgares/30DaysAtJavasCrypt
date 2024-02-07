@@ -83,16 +83,38 @@ fetch(countriesAPI)
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
-        const countriesLanguages = data.filter(country => country.languages);
+        const uniqueLanguages = new Set();
+        data.forEach(country => {
+            if (country.hasOwnProperty('languages')) {
+                country.languages.forEach(language => {
+                    let temp = Object.values(language.name).join('')
+                    
+                    uniqueLanguages.add(temp);
+                });
+            }
+        });
+        const totalUniqueLanguages = uniqueLanguages.size;
+        console.log(`total: ${totalUniqueLanguages}`)
+        console.log(uniqueLanguages)
+    
+      /*  const countriesLanguages = data.filter(country => country.languages);
         console.log(countriesLanguages)
         const languagesArray = countriesLanguages.map(({languages}) => ({languages}))
         console.log(languagesArray)
 
-        const test = languagesArray.forEach((element) => {
-            console.log(element.languages.name)
-        })
-        console.log(test)
+
+        const allLanguages = languagesArray.filter(({name}) => ({name}))
+        const allLanguagesArray = [];
+        for (let name of allLanguages) {
+            console.log(name[key])
+        }
+
+        const initialValue = "";
+        const result = languagesArray.reduce((acc, cur) => acc + cur, initialValue)
+     */
+        // console.log(result)
        // const languageSet = new Set(languagesArray);
        // console.log(languageSet)
     })
+    .catch(error => console.error('error fetching data', error));
 
