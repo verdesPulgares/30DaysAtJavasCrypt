@@ -11,4 +11,4 @@ let jSonUser = JSON.stringify(user);
 localStorage.setItem('user', jSonUser)
 console.log(localStorage);
 
-//the rest is pretty much all the same
+//the rest is pretty much all the same exercises i've been already doing. gonna skip it in the name of the bigger picture
