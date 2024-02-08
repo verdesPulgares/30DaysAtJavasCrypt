@@ -118,3 +118,28 @@ fetch(countriesAPI)
     })
     .catch(error => console.error('error fetching data', error));
 
+//now lets find (unique) languages spoken in only one country
+async function getCountriesByLanguage() {
+    try {
+        const response = await fetch(countriesAPI);
+        const countriesData = await response.json();
+        const languageMap = {};
+        countriesData.forEach(country => {
+            if (country.languages) {
+                country.languages.forEach(language => {
+                    if (!languageMap[language]) {
+                        languageMap[language] = [country.name];
+                    } else {
+                        languageMap[language].push(country.name);
+                    }
+                });
+            }
+        });
+        return languageMap
+    } catch (error) {
+        console.error('error fetching data from the API', error);
+    }
+}
+getCountriesByLanguage().then(languageMap => {
+    console.log(languageMap)
+})
