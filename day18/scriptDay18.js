@@ -1,6 +1,7 @@
 const countriesAPI = 'https://restcountries.com/v2/all'
 const catsAPI = 'https://api.thecatapi.com/v1/breeds'
-/*
+
+    /*
 //01
 fetch(countriesAPI)
     .then(response => response.json())
@@ -31,20 +32,20 @@ fetchData()
 
 
 //02
+/* 
 fetch(catsAPI)
     .then(response => response.json())
     .then(data => {
         data.forEach(element => {
             console.log(element.name)
         });
-        console.log
     })
     .catch(error => console.error(error));
-
+ */
 
 //Exercise Level 03:
 //01
-fetch(catsAPI)
+/* fetch(catsAPI)
     .then(response => response.json())
     .then(data => {
         const breedsAndWeights = data.filter(cat => cat.weight.metric);
@@ -54,14 +55,16 @@ fetch(catsAPI)
         const averageWeight = (weightsInMetric.reduce((acc, num) => acc + num, 0)) / weightsInMetric.length;
         console.log(`The average weight of cats in metric system is ${averageWeight} kgs`)
 
-        /*     console.log(data)
-       data.forEach(cat => {
-       console.log(`${cat.weight.metric}`)     
-        })*/
+       // data.forEach(cat => {
+       // console.log(`${cat.weight.metric}`)     
+       // })
     })
     .catch(error => console.error(error));
 
+ */
+
 //02
+/* 
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
@@ -79,7 +82,9 @@ fetch(countriesAPI)
     })
     .catch(error => console.error(error));
 
-//03
+ */
+
+/* //03
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
@@ -101,8 +106,6 @@ fetch(countriesAPI)
         console.log(countriesLanguages)
         const languagesArray = countriesLanguages.map(({languages}) => ({languages}))
         console.log(languagesArray)
-
-
         const allLanguages = languagesArray.filter(({name}) => ({name}))
         const allLanguagesArray = [];
         for (let name of allLanguages) {
@@ -111,15 +114,16 @@ fetch(countriesAPI)
 
         const initialValue = "";
         const result = languagesArray.reduce((acc, cur) => acc + cur, initialValue)
-     */
         // console.log(result)
        // const languageSet = new Set(languagesArray);
        // console.log(languageSet)
     })
     .catch(error => console.error('error fetching data', error));
-
+ */
 //now lets find (unique) languages spoken in only one country
-async function getCountriesByLanguage() {
+
+
+/*async function getCountriesByLanguage() {
     try {
         const response = await fetch(countriesAPI);
         const countriesData = await response.json();
@@ -128,7 +132,7 @@ async function getCountriesByLanguage() {
             if (country.languages) {
                 country.languages.forEach(language => {
                     if (!languageMap[language]) {
-                        languageMap[language] = [country.name];
+                        languageMap[language] = country.language;
                     } else {
                         languageMap[language].push(country.name);
                     }
@@ -140,6 +144,54 @@ async function getCountriesByLanguage() {
         console.error('error fetching data from the API', error);
     }
 }
-getCountriesByLanguage().then(languageMap => {
-    console.log(languageMap)
+console.log(getCountriesByLanguage());
+*/
+
+;
+function getCountries() {
+
+    return fetch(countriesAPI)
+            .then(response => response.json())
+};
+
+function pickRelevantData(countries) {
+    return countries.map(({languages, name}) => ({languages, name}));
+//retorno array de countris mapeado las properties que quiero
+}
+
+function groupCountriesByLanguage(countries) {
+    return countries;
+}
+
+function findLanguagesInSingleCountry(input) {
+   const result = Object.entries(input).filter((entry) => (entry[1].length === 1)  )
+   const mapResult = result.map((array) => array[0])
+   return mapResult
+}
+getCountries().then(countries => {
+
+    const countriesWithOnlyNameAndLang = pickRelevantData(countries);
+
+    const countriesByLanguage = groupCountriesByLanguage(countriesWithOnlyNameAndLang);
+
+    const languagesInSingleCountry = findLanguagesInSingleCountry(countriesByLanguage);
+
+    console.log({ countries, countriesWithOnlyNameAndLang, countriesByLanguage, languagesInSingleCountry })
+
 })
+
+
+
+function groupCountriesByLanguage(countries) {
+  
+    let test = countries.reduce((acc, country) => {
+      country.languages.forEach((language) => {
+        if (!acc.hasOwnProperty(language.name)) {
+          acc[language.name] = []
+        }
+        acc[language.name].push(country.name)
+      })
+      return acc
+    }, {})
+    return test
+}
