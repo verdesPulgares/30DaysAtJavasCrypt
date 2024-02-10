@@ -194,4 +194,5 @@ function groupCountriesByLanguage(countries) {
       return acc
     }, {})
     return test
-}
+};
+
