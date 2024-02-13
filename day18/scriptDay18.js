@@ -159,28 +159,14 @@ function pickRelevantData(countries) {
 //retorno array de countris mapeado las properties que quiero
 }
 
-function groupCountriesByLanguage(countries) {
-    return countries;
-}
+//function groupCountriesByLanguage(countries) { //esta está al pepe
+//    return countries;}
 
 function findLanguagesInSingleCountry(input) {
    const result = Object.entries(input).filter((entry) => (entry[1].length === 1)  )
    const mapResult = result.map((array) => array[0])
    return mapResult
-}
-getCountries().then(countries => {
-
-    const countriesWithOnlyNameAndLang = pickRelevantData(countries);
-
-    const countriesByLanguage = groupCountriesByLanguage(countriesWithOnlyNameAndLang);
-
-    const languagesInSingleCountry = findLanguagesInSingleCountry(countriesByLanguage);
-
-    console.log({ countries, countriesWithOnlyNameAndLang, countriesByLanguage, languagesInSingleCountry })
-
-})
-
-
+};
 
 function groupCountriesByLanguage(countries) {
   
@@ -196,3 +182,14 @@ function groupCountriesByLanguage(countries) {
     return test
 };
 
+getCountries().then(countries => {
+
+    const countriesWithOnlyNameAndLang = pickRelevantData(countries);
+
+    const countriesByLanguage = groupCountriesByLanguage(countriesWithOnlyNameAndLang);
+
+    const languagesInSingleCountry = findLanguagesInSingleCountry(countriesByLanguage);
+
+    console.log({ countries, countriesWithOnlyNameAndLang, countriesByLanguage, languagesInSingleCountry });
+
+})
